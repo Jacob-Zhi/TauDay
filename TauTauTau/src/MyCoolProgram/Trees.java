@@ -3,17 +3,9 @@ package MyCoolProgram;
 public class Trees {
 
 	public static void main(String[] args) {
-		int[] treeHeights = new int[8];
+		int[] treeHeights = {15, 11, 9, 10, 15, 15, 9, 14};
 		//plz PUT YOUR HEIGHT NUMS HERE
-		treeHeights[0] = 15;
-		treeHeights[1] = 11;
-		treeHeights[2] = 8;
-		treeHeights[3] = 10;
-		treeHeights[4] = 15;
-		treeHeights[5] = 15;
-		treeHeights[6] = 9;
-		treeHeights[7] = 14;
-		
+
 		
 		
 		//My Code

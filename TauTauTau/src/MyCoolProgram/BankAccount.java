@@ -29,17 +29,39 @@ public class BankAccount {
 	}
 	
 	//Other Methods
-	//Deposit
-	public void deposit(int d, int c){
-		dollars = dollars + d;
-		cents = cents + c;
+	//Check and fix if something is negative
+	public void checkIfNegative() {
+		if(dollars < 0) {
+			System.out.println("You have a negative balance in your account");
+		}
+		if (cents <= -100) {
+			int withdrawAmount;
+			if((-cents / 100.0) % 1 != 0) {
+				withdrawAmount = -cents / 100;
+				withdraw(withdrawAmount, 0);
+				deposit(0, -cents);
+			}
+			else {
+				withdrawAmount = -cents / 100 + 1;
+				withdraw(withdrawAmount, 0);
+				int depositAmount = 100 - (int) (Math.abs(((cents / 100.0) % 1) * 100));
+				deposit(0, depositAmount);				
+			}
+		}
+	}
+	//Check and fix if cents > 100
+	public void checkCents(){
 		if(cents > 99){
 			dollars = dollars + (cents/100);
 			cents = cents % 100;
 		}
-		if(cents < 0 || dollars < 0) {
-			System.out.println("ERROR: money amount cannot be less than $0, balance has been set to $0.00");
-		}
+	}
+	//Deposit
+	public void deposit(int d, int c){
+		dollars = dollars + d;
+		cents = cents + c;
+		checkCents();
+	
 	}
 	//Withdraw
 	public void withdraw(int d, int c) {
@@ -48,6 +70,7 @@ public class BankAccount {
 		if(cents < 0 || dollars < 0) {
 			System.out.println("ERROR: money amount cannot be less than $0, you have run out of money!");
 		}
+		checkIfNegative();
 	}
 	//Constructor
 	public BankAccount(int dDollars, int dCents, String dName, int dID) {
@@ -55,12 +78,7 @@ public class BankAccount {
 		this.dollars = dDollars;
 		this.name = dName;
 		this.iD = dID;
-		if(cents > 99){
-			dollars = dollars + (cents/100);
-			cents = cents % 100;
-		}
-		if(cents < 0 || dollars < 0) {
-			System.out.println("ERROR: money amount cannot be less than $0");
-		}
+		checkIfNegative();
+		checkCents();
 	}
 }

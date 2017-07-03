@@ -8,8 +8,9 @@ public class SavingsAccount extends BankAccount{
 		money = money + (getCents()/100);
 		money = money * interestRate;
 		int coolDollars = (int) money;
-		int coolCents = (int) (money % 1);
+		int coolCents = (int) ((money % 1) * 100);
 		deposit(coolDollars, coolCents);
+		checkCents();
 	}
 	//Constructor
 	public SavingsAccount(int dDollars, int dCents, String dName, int dID, double dInterest) {

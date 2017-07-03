@@ -24,6 +24,7 @@ public class Mountainous {
 			System.out.println(checkIfMountainous(yourNumber));
 		}
 	}
+	
 	//Actual mountainous checking method
 	public static boolean checkIfMountainous(int inputInt) {
 		//Set the input int into a array with each digit in one "slot"
@@ -31,10 +32,10 @@ public class Mountainous {
 		int[] inputArray = new int[length];
 		String inputString = String.valueOf(inputInt);
 		for(int i=0; i<inputArray.length; i++){
-			Character characterLit = inputString.charAt(i);
-			String lit = characterLit.toString();
-			int superLit = Integer.parseInt(lit);
-			inputArray[i] = superLit;
+			Character currentCharacter = inputString.charAt(i);
+			String currentCharString = currentCharacter.toString();
+			int currentDigit = Integer.parseInt(currentCharString);
+			inputArray[i] = currentDigit;
 			
 		}
 		
