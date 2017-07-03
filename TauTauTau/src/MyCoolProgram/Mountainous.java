@@ -54,6 +54,7 @@ public class Mountainous {
 		}
 		
 		//if the number of peaks is greater than 1 then return false
+		
 		int countMax = 0;
 		for(int k=0; k<inputArray.length; k++){
 			if(inputArray[k] == currentMax){
