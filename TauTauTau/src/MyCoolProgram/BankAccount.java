@@ -34,7 +34,7 @@ public class BankAccount {
 		if(dollars < 0) {
 			System.out.println("You have a negative balance in your account");
 		}
-		if (cents <= -100) {
+		if (cents < 0) {
 			int withdrawAmount;
 			if((-cents / 100.0) % 1 != 0) {
 				withdrawAmount = -cents / 100;
@@ -67,10 +67,10 @@ public class BankAccount {
 	public void withdraw(int d, int c) {
 		dollars = dollars - d;
 		dollars = dollars - c;
-		if(cents < 0 || dollars < 0) {
-			System.out.println("ERROR: money amount cannot be less than $0, you have run out of money!");
-		}
 		checkIfNegative();
+		if(dollars < 0 || cents < 0) {
+			System.out.println("You are broke");
+		}
 	}
 	//Constructor
 	public BankAccount(int dDollars, int dCents, String dName, int dID) {
