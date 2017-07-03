@@ -5,7 +5,7 @@ public class Mountainous {
 	public static void main(String[] args) {
 		//Test any 3 of these numbers or make your own
 		// (yourNumber is the variable the program tests if is mountainous)
-		int coolTest1 = 1235789741;
+		int coolTest1 = 125789741;
 		int coolTest2 = 3473;
 		int coolTest3 = 21;
 		int coolTest4 = 3124087;
@@ -55,7 +55,7 @@ public class Mountainous {
 		}
 		
 		//if the number of peaks is greater than 1 then return false
-		
+		/*
 		int countMax = 0;
 		for(int k=0; k<inputArray.length; k++){
 			if(inputArray[k] == currentMax){
@@ -65,7 +65,7 @@ public class Mountainous {
 		if(countMax != 1){
 			return false;
 		}
-		
+		*/
 		//get peak location
 		int maxLocation = 0;
 		for(int q=0; q<inputArray.length; q++) {
